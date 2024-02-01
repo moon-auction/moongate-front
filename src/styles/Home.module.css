@@ -1,0 +1,150 @@
+* {
+    color: #f2f2f2;
+    font-size: 19px;
+}
+
+.container {
+    height: max-content;
+}
+
+.parent {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.leftSide {
+    background-color: #252525;
+    height: 150px;
+    width: 200px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.centerSide {
+    background-color: #252525;
+    padding: 10px;
+    display: flex;
+}
+
+.rightSide {
+    background-color: #252525;
+    height: 150px;
+    overflow: hidden;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    text-decoration: none;
+    background-color: #D9D9D9;
+    width: 200px;
+    height: 30px;
+    justify-content: center;;
+    padding: 20px;
+    color: black;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.top {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    flex-direction: column;
+
+}
+
+.vertBr {
+    background-color: #535353;
+    height: 1px;
+    margin-top: 1px;
+    margin-bottom: 5px;
+}
+
+.link {
+    text-decoration: none;
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding-top:10px;
+    font-size: 17px;
+}
+
+.left {
+    width:500px;
+    padding: 1%;
+}
+
+.right{
+    width:500px;
+    padding: 1%;
+    gap: 10px;
+}
+
+.border {
+    background-color: #535353;
+    height: 100%;
+    width: 1px;
+}
+
+.post {
+    display: flex;
+}
+
+.number {
+    margin-right: 10px;
+    float: left;
+}
+
+.title {
+    float: left;
+}
+
+.up {
+    float: right;
+    margin-left: auto;
+}
+
+.more {
+    float: right;
+}
+
+
+@media (max-width: 1400px) {
+
+    .center {
+        grid-area: 1 / 1 / 6 / 6;
+    }
+    .border {
+        display: none;
+    }
+    .centerSide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 800px) {
+    .leftSide {
+        display: none;
+    }
+    .rightSide {
+        display: none;
+    }
+    .border {
+        display: none;
+    }
+    .centerSide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -1,0 +1,176 @@
+{
+    "shortcuts": [
+        {
+            "name": "마비노기 공식 홈페이지",
+            "url": "https://mabinogi.nexon.com/page/main/index.asp",
+            "description": "마비노기 공식 홈페이지입니다.",
+            "tags": [
+                "공식"
+            ]
+        },
+        {
+            "name": "마비노기 도서관 카페(마도카)",
+            "url": "https://cafe.naver.com/mabinogidsg",
+            "description": "마비노기 커뮤니티 중 가장 큰 네이버 카페입니다.",
+            "tags": [
+                "커뮤",
+                "종합",
+                "정보",
+                "길드",
+                "모집",
+                "팁"
+            ]
+        },
+        {
+            "name": "마비노기 시장 카페(마시카)",
+            "url": "https://cafe.naver.com/trademabi",
+            "description": "마비노기 거래 카페 중 가장 큽니다.",
+            "tags": [
+                "거래",
+                "아이템",
+                "서비스"
+            ]
+        },
+        {
+            "name" : "싴갤러스",
+            "url": "https://mabi.fantazm.net/",
+            "description": "여러가지 도구들이 모아져 있는 사이트입니다.",
+            "tags": [
+                "도구",
+                "뿔피리",
+                "날씨",
+                "교역",
+                "경매",
+                "축복",
+                "모닥불",
+                "지염",
+                "특별조",
+                "시뮬",
+                "정보",
+                "레이드"
+            ]
+        },
+        {
+            "name": "마비노기 인장공방",
+            "url": "https://cafe.naver.com/mabiarts",
+            "description": "다양한 작가 분들에게 그림을 커미션 핧 수 있는 카페입니다.",
+            "tags": [
+                "인장",
+                "거래",
+                "서비스"
+            ]
+        },
+        {
+            "name": "마숲톡(류트)",
+            "url": "https://open.kakao.com/o/g9AuR0td",
+            "description": "게임 내 재화를 사고 팔 수 있는 오픈채팅방입니다.",
+            "tags": [
+                "거래",
+                "숲",
+                "재화"
+            ]
+        },
+        {
+            "name": "마거톡(류트)",
+            "url": "https://open.kakao.com/o/gHMnB2vc",
+            "description": "게임 내 아이템을 사고 팔 수 있는 오픈채팅방입니다.",
+            "tags": [
+                "거래",
+                "아이템"
+            ]
+        },
+        {
+            "name": "시그킬",
+            "url": "https://mabi.sigkill.kr/",
+            "description": "마비노기 내의 컨텐츠의 시뮬레이션을 할 수 있는 사이트입니다.",
+            "tags": [
+                "도구",
+                "아이템",
+                "의장",
+                "하우징",
+                "오미"
+            ]
+        },
+        {
+            "name": "바이크타고",
+            "url": "https://biketago.com/",
+            "description": "여러가지 도구들이 모아져 있는 사이트입니다.",
+            "tags": [
+                "도구",
+                "인챈트",
+                "키트",
+                "요리",
+                "정보"
+            ]
+        },
+        {
+            "name": "라바뉴의 마비노기",
+            "url": "http://mabi.labanyu.com/",
+            "description": "여러 컨텐츠 관련 계산을 할 수 있는 사이트입니다.",
+            "tags": [
+                "도구",
+                "정보",
+                "수련",
+                "성장",
+                "에코스톤"
+            ]
+        },
+        {
+            "name": "마비노기 쉼플레이스",
+            "url": "https://mabinogi.shimplace.com/",
+            "description": "여러 컨텐츠의 할 일을 트래킹 할 수 있는 사이트입니다.",
+            "tags":[
+                "도구",
+                "정보",
+                "일퀘",
+                "퀘스트",
+                "특별조",
+                "이벤트"
+            ]
+        },
+        {
+            "name" : "마비노기 블로니 채널",
+            "url": "https://arca.live/b/mabi",
+            "description": "아카라이브의 마비노기 관련 채널입니다.",
+            "tags": [
+                "종합",
+                "커뮤",
+                "팁",
+                "모집"
+            ]
+        },
+        {
+            "name": "마비노기 갤러리",
+            "url": "https://gall.dcinside.com/board/lists/?id=game_mabinogi1",
+            "description": "디시인사이드의 마비노기 갤러리입니다.",
+            "tags": [
+                "커뮤",
+                "종합"
+            ]
+        }
+    ],
+    "tags": [
+        "커뮤",
+        "종합",
+        "거래",
+        "아이템",
+        "서비스",
+        "인장",
+        "숲",
+        "도구",
+        "인챈트",
+        "키트",
+        "요리",
+        "정보",
+        "수련",
+        "성장",
+        "에코스톤",
+        "일퀘",
+        "퀘스트",
+        "특별조",
+        "이벤트",
+        "팁",
+        "모집",
+        "길드"
+    ]
+}

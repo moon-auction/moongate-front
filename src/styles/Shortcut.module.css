@@ -1,0 +1,70 @@
+.links {
+    background-color: #1A1A1A;
+    width: 400px;
+    height: 100px;
+    border-radius: 20px;
+    color: white;
+    padding: 5px;
+}
+
+.tags {
+    display: flex;
+    gap: 5px;
+    overflow: auto;
+    white-space: nowrap
+
+}
+
+.tag {
+    border-radius: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: #d1d1d1;
+    color: #1A1A1A;
+    border: none;
+}
+
+.tag:hover {
+    background-color: #b1b1b1;
+}
+
+.selectedTag {
+    border-radius: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: #c4ce34;
+    color: #1A1A1A;
+    border: none;
+}
+
+.sites {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: max-content;
+    width: 830px;
+    overflow: auto;
+    gap: 5px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    justify-content: center;
+    gap: 5px;
+}
+
+.tagSelector {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    overflow: auto;
+    flex-wrap: wrap;
+    width: 830px;
+}
