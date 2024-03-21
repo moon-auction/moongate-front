@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "@styles/Register.module.css";
+import { GetConfirmCode, CorfirmCode } from "@apis/Register";
 
 export default function Register() {
 
@@ -14,7 +15,9 @@ export default function Register() {
 
     useEffect(() => {
         // It should get the confirm code from the server;
-        setConfirmCode("123456");
+        GetConfirmCode().then((res: any) => {
+            setConfirmCode(res.data.code);
+        });
     }, []);
 
     function handleConfirmCode(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
@@ -50,6 +53,7 @@ export default function Register() {
                 <div>
                     <p>확인코드</p>
                     <p>{confirmCode}</p>
+                    <input className={styles.labels} type="number" id="confirmCode" onChange={((e) => {})}></input>
                     <button type="button" disabled={confirmed} onClick={handleConfirmCode}>인증하기</button>
                 </div>
                 <button disabled={!confirmed} type="submit">회원가입</button>
