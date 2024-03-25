@@ -11,6 +11,15 @@
 
 button {
   font-family: MabninogiClassic;
+  background-color: #A0A0A0;
+}
+
+button:hover {
+  background-color: #808080;
+}
+
+button:disabled {
+  background-color: #202020;
 }
 
 @media (prefers-reduced-motion: no-preference) {

@@ -19,10 +19,28 @@ export function GetConfirmCode() {
     });
 }
 
-export function CorfirmCode(code: string) {
-    return APIWrapper.post(`/api/auth/confirm`, {code});
+export function ValidateCorfirmCode(code: string, url:number) {
+    return new Promise((resolve, reject) => {
+        APIWrapper.post('/api/auth/register/confirm', {code, url})
+            .then((res: any) => {
+                resolve(res);
+            })
+            .catch((err) => {
+                console.log(err);
+                reject(err);
+            });
+    })
 }
 
 export function Register(payload: RegisterPayload) {
-    return APIWrapper.post('/api/auth/register', payload);
+    return new Promise((resolve, reject) => {
+        APIWrapper.post('/api/auth/register/', payload)
+            .then((res: any) => {
+                resolve(res);
+            })
+            .catch((err) => {
+                console.log(err);
+                reject(err);
+            });
+    })
 };
