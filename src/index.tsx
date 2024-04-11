@@ -20,6 +20,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import FindIdPw from './pages/FindIdPw';
 import MyPage from './pages/MyPage';
+import Post from './pages/Post';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: 'mypage',
         element: <MyPage />,
+      },
+      {
+        path: 'post',
+        element: <Post />,
       },
     ],
   },

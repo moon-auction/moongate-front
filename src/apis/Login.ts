@@ -1,6 +1,5 @@
 import APIWrapper from "./APIWrapper";
 import URL from './urls';
-import {Cookies} from 'react-cookie';
 
 type LoginPayload = {
   email: string;
@@ -9,10 +8,8 @@ type LoginPayload = {
 
 export async function LoginAPI(payload: LoginPayload) {
   return new Promise((resolve, reject) => {
-    APIWrapper.post(URL.LoginAPI, payload)
+    APIWrapper.post(URL.LoginAPI, payload, {withCredentials: true})
       .then((res) => {
-          const cookies = new Cookies();
-          cookies.set('token', res.data.token);
           resolve(res);
       })
       .catch((err) => {
@@ -22,11 +19,23 @@ export async function LoginAPI(payload: LoginPayload) {
   });
 };
 
+export async function UserInfoAPI() {
+  return new Promise((resolve, reject) => {
+    APIWrapper.get(URL.UserInfoAPI, {withCredentials: true})
+      .then((res) => {
+          resolve(res);
+      })
+      .catch((err) => {
+          console.log(err);
+          reject(err);
+      })
+  });
+}
+
 export async function LogoutAPI() {
   return APIWrapper.get(URL.LogoutAPI)
     .then((res) => {
-        const cookies = new Cookies();
-        cookies.remove('token');
+        console.log(res);
     })
     .catch((err) => {
         console.log(err);

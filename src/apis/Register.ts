@@ -32,6 +32,19 @@ export function ValidateCorfirmCode(code: string, url:number) {
     })
 }
 
+export function ValidateDeletedCorfirmCode(code: string, url: number) {
+    return new Promise((resolve, reject) => {
+        APIWrapper.delete('/api/auth/register/confirm/delete/'+ code)
+            .then((res: any) => {
+                resolve(res);
+            })
+            .catch((err) => {
+                console.log(err);
+                reject(err);
+            });
+    })
+}
+
 export function Register(payload: RegisterPayload) {
     return new Promise((resolve, reject) => {
         APIWrapper.post('/api/auth/register/', payload)

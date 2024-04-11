@@ -1,20 +1,23 @@
 import { useState } from 'react';
 import styles from '@styles/Login.module.css';
 import { LoginAPI } from '@apis/Login';
-import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-function sendLoginData(id: string, pw: string) {
-    LoginAPI({email: id, password: pw})
-        .then((res) => {
-            alert('로그인 성공');
-            redirect('/');
-        })
-        .catch((err) => {
-        });
-}
+
 
 export default function Login() {
     const [ formData, setFormData ] = useState({ id: '', pw: '' });
+    const navigate = useNavigate();
+
+    function sendLoginData(id: string, pw: string) {
+        LoginAPI({email: id, password: pw})
+            .then((res) => {
+                alert('로그인 성공');
+                navigate('/');
+            })
+            .catch((err) => {
+            });
+    }
 
     return (
         <div className={styles.outerContainer}>

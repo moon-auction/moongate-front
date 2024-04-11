@@ -1,8 +1,11 @@
 import { useEffect, useState, SyntheticEvent } from "react";
 import styles from "@styles/Register.module.css";
-import { GetConfirmCode, ValidateCorfirmCode, Register as RegisterAPI } from "@apis/Register";
+import { GetConfirmCode, ValidateCorfirmCode, ValidateDeletedCorfirmCode ,Register as RegisterAPI } from "@apis/Register";
+import { useNavigate } from "react-router-dom"
 
 export default function Register() {
+
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         email: "",
@@ -14,6 +17,7 @@ export default function Register() {
 
     const [confirmCode, setConfirmCode] = useState("");
     const [confirmed, setConfirmed] = useState(false);
+    const [deleted, setDeleted] = useState(true);
     const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*[0-9]).{8,25}$/;
 
     useEffect(() => {
@@ -32,9 +36,21 @@ export default function Register() {
         // API call to the server
         ValidateCorfirmCode(confirmCode, confirmUrl).then((res: any) => {
             setConfirmed(true);
+            setDeleted(false);
         }).catch((err) => {
             alert("인증에 실패했습니다");
         });
+    }
+
+    function handleDeletedConfirmCode(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+        e.preventDefault();
+        // API call to the server
+        ValidateDeletedCorfirmCode(confirmCode, confirmUrl).then((res: any) => {
+            setConfirmed(true);
+            setDeleted(true);
+        }).catch((err) => {
+            alert("인증에 실패했습니다");
+        })
     }
 
     function handleRegister(e: SyntheticEvent) {
@@ -51,6 +67,7 @@ export default function Register() {
 
         RegisterAPI({...formData, confirm: confirmCode}).then((res: any) => {
             alert("회원가입에 성공했습니다");
+            navigate("/");
         }
         ).catch((err) => {
             alert("회원가입에 실패했습니다");
@@ -88,8 +105,9 @@ export default function Register() {
                     <label className={styles.labels} htmlFor="passwordConfirm">공홈 url</label>
                     <input className={styles.labels} type="number" id="confirmCode" onChange={((e) => {setConfirmUrl(e.target.valueAsNumber)})}></input>
                     <button type="button" disabled={confirmed} onClick={handleConfirmCode}>인증하기</button>
+                    <button type="button" disabled={deleted} onClick={handleDeletedConfirmCode}>삭제인증</button>
                 </div>
-                <button  type="submit" onSubmit={handleRegister}>회원가입</button>
+                <button type="submit" disabled={!(deleted && confirmed)} onSubmit={handleRegister}>회원가입</button>
             </form>
         </div>
         </div>

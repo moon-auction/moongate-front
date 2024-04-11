@@ -1,6 +1,9 @@
 import styles from '@styles/Home.module.css';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import APIWrapper from '@apis/APIWrapper';
+import { UserInfoAPI } from '@apis/Login';
+
 
 class PostLink {
     title: string;
@@ -13,7 +16,7 @@ class PostLink {
     }
     toElement() {
         return (
-            <Link to={'/board?number=' + this.number}>
+            <Link to={'/post?number=' + this.number}>
                 <div className={styles.post}>
                 <div className={styles.number}>{this.number}</div>
                 <div className={styles.title}>{this.title}</div>
@@ -23,11 +26,58 @@ class PostLink {
             
         );
     }
-
 }
+
 
 export default function Home() {
     const [top, setTop] = useState<PostLink[]>([]);
+    const [ userInfo, setUserInfo ] = useState<any>({
+        name: "",
+        level: 0,
+        exp: 0,
+    });
+
+
+    function LeftSideLoggedIn(props: any) {
+        return (
+            <div className={styles.leftSide}>
+                <div className={styles.userInfo}>
+                    <div className={styles.nickname}>닉네임: {userInfo.name}</div>
+                </div>
+                <div className={styles.userInfo}>
+                    <div className={styles.nickname}>레벨: {userInfo.level}</div>
+                </div>
+                <div className={styles.userInfo}>
+                    <div className={styles.nickname}>경험치: </div>
+                    <div className={styles.nickname}>{}</div>
+                </div>
+                <Link className={styles.button} to={'logout'}>로그아웃</Link>
+            </div>
+        );
+    }
+
+    function LeftSideNotLoggedIn() {
+        return (
+            <div className={styles.leftSide}>
+                <Link className={styles.button} to={'login'}>문게이트 로그인</Link>
+                <Link className={styles.link} to={"register"}>회원가입</Link>
+                <Link className={styles.link} to={"findidpw"}>ID/PW 찾기</Link>
+            </div>
+        );
+    }
+
+    useEffect(() => {
+        UserInfoAPI().then((res: any) => {
+            setUserInfo(res.data.user);
+        }).catch((err: any) => {
+            setUserInfo(null);
+            console.log(err);
+        });
+    }, []);
+
+    useEffect(() => {
+        console.log(userInfo);
+    }, [userInfo]);
 
     useEffect(() => {
         setTop([
@@ -47,11 +97,7 @@ export default function Home() {
     return (
         <div className={styles.container}>
             <div className={styles.parent}>
-                <div className={styles.leftSide}>
-                    <Link className={styles.button} to={'login'}>문게이트 로그인</Link>
-                    <Link className={styles.link} to={"register"}>회원가입</Link>
-                    <Link className={styles.link} to={"findidpw"}>ID/PW 찾기</Link>
-                </div>
+                {userInfo ? <LeftSideLoggedIn props={userInfo}/> : <LeftSideNotLoggedIn />}
 
                 <div className={styles.centerSide}>
                     <div className={styles.left}>
